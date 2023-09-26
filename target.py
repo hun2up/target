@@ -75,5 +75,4 @@ df_target = pd.merge(df_target, df_input, on='과정명', how='inner')
 df_target = df_target.drop(columns=['과정명','신청여부'])
 df_target = df_target[['과정코드','사원번호','손보','생보','승인여부','비고']]
 
-
-print(df_target)
+df_target.to_excel('target.xlsx', index=False)
