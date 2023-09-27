@@ -94,10 +94,9 @@ df_applied['신청여부'] = df_applied['신청여부'].astype(str)
 df_target = df_applied[~df_applied['신청여부'].str.contains('신청')]
 
 # 입과입력 양식에 맞게 필요 컬럼 추가
-add_columns = ['손보','생보','승인여부']
-for i in range(len(add_columns)):
-    df_target[add_columns[i]] =''
-df_target['비고'] = 2
+df_target['손보'] = ''
+df_target['생보'] = ''
+df_target['승인여부'] = 2
 # 컬럼 정리
 df_target = pd.merge(df_target, df_input, on='과정명', how='inner')
 df_target = df_target.drop(columns=['과정명','신청여부'])
